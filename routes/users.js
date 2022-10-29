@@ -6,11 +6,11 @@ router.get('', (req, res) => {
 })
 
 router.get('/new', (req, res) => {
-  res.send("User New")
+  res.render("users/new")
 })
 
 router.post('/', (req, res) => {
-  res.send("User Create")
+  res.send(`User Create ${req.body.firstName}`)
 })
 
 router.route('/:id')
