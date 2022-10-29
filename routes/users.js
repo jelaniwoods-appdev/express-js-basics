@@ -14,8 +14,14 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  // params.fetch(:id)
-  req.params.id
+  res.send(`User Get with id: ${req.params.id}`)
+})
+
+router.put('/:id', (req, res) => {
+  res.send(`User Get with id: ${req.params.id}`)
+})
+
+router.delete('/:id', (req, res) => {
   res.send(`User Get with id: ${req.params.id}`)
 })
 
