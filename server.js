@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-  res.status(200).send("Hello, World")
+  res.status(200).json({ status: 200, message: "OK" })
 })
 
 app.listen(3000);
