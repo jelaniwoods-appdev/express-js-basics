@@ -15,6 +15,7 @@ router.post('/', (req, res) => {
 
 router.route('/:id')
   .get( (req, res) => {
+    console.log(req.user)
     res.send(`User Get with id: ${req.params.id}`)
   })
   .put( (req, res) => {
@@ -24,4 +25,14 @@ router.route('/:id')
     res.send(`User Get with id: ${req.params.id}`)
   })
 
+const users = [ {name: "Jelani"}, { name: "Amber"} ]
+// kind of like a 'before_action' but for specific request params
+router.param("id", (req, res, next, id) => {
+  // can set 'variables' for the request
+  req.user = users[id]
+  next() // continue to the next middleware function or response
+})
+
+// middleware - stuff that runs between the user sending the request
+//  and the server sending back the response
 module.exports = router
